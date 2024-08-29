@@ -14,6 +14,7 @@ config/
 *.bin
 *.fzz
 *.drawio
+*.pdf
 
 # C extensions
 *.so
