@@ -1,30 +1,23 @@
-'''
-- This code demostrate how to write data into Memory of UHF Tags,
-- Only EPC and USER memory are writeable
-- EPC memory allow to change default EPC value of Tag
-- USER memory to store required data
-'''
-#import library modules
-from machine import UART, Pin,SPI
-import time,utime
-from uhf import UHF, EPC_BANK, USER_BANK, WriteTagError #include uhf library file
+# UHFTag_NewEPCWrite.py : demonstrate how to write the EPC in the memory of UHF Tags.
+#
+# See also the UHFTag_IncrEPCWriter.py resulting from this experiment.
+#
+# Remarks:
+#  Only EPC and USER memory are writeable
+#  EPC Memory: (Read/Write) allow to change default EPC value of Tag
+#  USER Memory: (Read/Write) to store required data
+
+from machine import Pin
+import time
+from uhf import UHF, EPC_BANK
 
 #UHF enable pin connected at GP4
 enable_pin = machine.Pin(4, machine.Pin.OUT) # set pin as OUTPUT
 enable_pin.value(0) # LOW value enables UHF module, HIGH to disable module
 
-baudrate = 115200   # communication baudrate
-uhf = UHF(baudrate) # create instance for class UHF
+uhf = UHF(baudrate=115200) # create instance for class UHF
 
-'''
-Memory Bank
-1 - EPC  --> Read/Write
-3 - USER --> Read/Write
-'''
-
-Memory_bank = '3'	# Make sure to select correct bank for Read/Write operation
-
-#Select the Tag for write operation
+# Select the Tag for write operation
 response = uhf.Set_select_pera('80464500e280101010121100') # change with the EPC of the tag, which you want to write
 print(response)
 
@@ -44,5 +37,13 @@ https://github.com/sbcshop/UHF_Lite_Pico_Expansion_Software/blob/main/Examples/m
 '''
 
 #Change Data which you want to Write, in case of EPC write build correct data format as shown above
-response = uhf.Write_tag_data('91418800000000000000000000000000',Memory_bank) # maximum length is 32 words
-print(response)
+# Read single_read.py returned
+# * CRC= c4 1e , PC= 34 00 ,
+# * EPC = ['30', '08', '33', 'b2', 'dd', 'd9', '01', '40', '00', '00', '00', '00']
+# Change EPC to
+# * ['30', '08', '33', 'b2', 'dd', 'd9', '01', '40', '00', '00', '00', '02'] change the last byte
+# data_w will be:
+#   Checksum (of Previous EPC) + PC(of Previous EPC) + EPC (change with NEW)
+#   c4 1e + 34 00 + 300833b2ddd9014000000002
+response = uhf.Write_tag_data('c41e3400300833b2ddd9014000000002', EPC_BANK ) # Memory Bank = 1, maximum length is 32 words
+print( response )

@@ -11,15 +11,15 @@ uhf = UHF(baudrate)
 Uncomment corresponding section to increase reading range,
 you will have to set the region as per requirment
 '''
-#uhf.setRegion_EU() 
+uhf.setRegion_EU()
 #uhf.setRegion_US()
 
 rev = uhf.single_read()
 if rev is not None:
+   print('PC = ',rev[6],rev[7])
    print('EPC = ',rev[8:20])
    print('RSSI(dBm) = ',rev[5])
    print('CRC = ',rev[20],rev[21])
 
 time.sleep(1)
 uhf.stop_read()
-   

@@ -1,8 +1,10 @@
 # UHF_Lite_Pico_Expansion_Software
 
+__Remark:__ _Aug 30, 2024: DMeurisse : Making lib and examples more reliable_
+
 The frequency range of the UHF (Ultra High Frequency) Lite Expansion, a radio frequency device, is 300 MHz to 3 GHz. Wireless communication systems, such as radio-frequency identification (RFID) systems, Wi-Fi networks, and other short-range wireless communication applications, frequently employ UHF modules. UHF modules are created to send and receive signals over brief distances, usually up to a few hundred meters, and they have benefits like fast data transmission rates, low power consumption, and inexpensive price. Moreover, Anteena is on board.
 
-<img src = "https://github.com/sbcshop/UHF_Lite_Pico_Expansion_Software/blob/main/Images/img10.png"/>
+<img src = "Images/img10.png"/>
 
 ## Features/Specifications(Module):
   * Operating Voltage of DC 3.5-5volt
@@ -31,12 +33,12 @@ The frequency range of the UHF (Ultra High Frequency) Lite Expansion, a radio fr
 Make sure to connect the jumper wire as per the below image, while UHF Expansion uses ***with*** PICO
 
 <img src = "https://github.com/sbcshop/UHF_Lite_Pico_Expansion_Software/blob/main/Images/img12.png"/>
-1. Download Thonny IDE 
+1. Download Thonny IDE
 
    https://thonny.org/
-   
+
    <img src= "https://github.com/sbcshop/RoundyPi/blob/main/images/img.JPG" />
-   
+
 2. Install MicroPython in Raspberry Pi PICO
      first, you need to press the boot button and then connect the USB, Do,t release the button until you connect the USB to the laptop. then you see a new device named         "RPI-RP2" drag this file "firmware.uf2" to this device as shown in figure
         <img src= "https://github.com/sbcshop/RoundyPi/blob/main/images/img13.png" />
@@ -49,9 +51,9 @@ Download the repository, This repository has two folders:
  * Library - Inside this folder there is a file name  ***uhf.py*** and ***ssd1306.py*** (UHF Module Library)
 
    [Library](https://github.com/sbcshop/UHF_Lite_Pico_Expansion_Software/blob/main/Library/uhf.py), Save these files inside Raspberry Pi PICO
- 
+
  * Examples - Inside this folder, there are many examples :
- 
+
    [Examples](https://github.com/sbcshop/UHF_Lite_Pico_Expansion_Software/tree/main/Examples)
 
 ## Configure UHF Lite from Application
@@ -84,7 +86,7 @@ Make sure change the jumper wire as per upper image
 * [UHF Lite Expansion Hardware](https://github.com/sbcshop/UHF_Lite_HAT_Hardware)
 * [Getting Started with Raspberry Pi Pico](https://projects.raspberrypi.org/en/projects/getting-started-with-the-pico)
 * [Raspberry Pi Pico Official website](https://www.raspberrypi.com/documentation/microcontrollers/)
-* [Hardware Design](https://github.com/sbcshop/UHF_Lite_Pico_Expansion_Hardware/tree/main/Design%20Data) 
+* [Hardware Design](https://github.com/sbcshop/UHF_Lite_Pico_Expansion_Hardware/tree/main/Design%20Data)
 
 ## Related Products
 
@@ -98,11 +100,11 @@ Make sure change the jumper wire as per upper image
 * [RaspberryPi Pico RFID Expansion](https://shop.sb-components.co.uk/products/raspberry-pi-pico-rfid-expansion?_pos=3&_sid=075681430&_ss=r)
 
  ![RaspberryPi Pico RFID Expansion](https://cdn.shopify.com/s/files/1/1217/2104/products/2_85a5dfb2-96cb-4e0b-ba28-a70af127a4f1.png?v=1613732653&width=400)
- 
+
 * [UHF HAT For Raspberry-Pi](https://shop.sb-components.co.uk/products/uhf-hat-for-raspberry-pi?_pos=1&_sid=4a8407538&_ss=r)
 
  ![UHF HAT For Rpi](https://cdn.shopify.com/s/files/1/1217/2104/products/UHFHATForRaspberryPi.png?v=1648192425&width=400)
- 
+
 ## Product License
 
 This is ***open source*** product. Kindly check LICENSE.md file for more information.
